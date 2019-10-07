@@ -5,4 +5,4 @@ firebase.initializeApp(config);
 
 const databaseRef = firebase.database().ref();
 
-export const database = databaseRef.child('wiki');
+export const newWiki = databaseRef.child('wiki');
