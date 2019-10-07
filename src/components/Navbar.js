@@ -5,6 +5,8 @@ import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
+import Menu from '@material-ui/core/Menu';
+import MenuItem from '@material-ui/core/MenuItem';
 
 // Auth
 import withFirebaseAuth from 'react-with-firebase-auth';
@@ -21,8 +23,20 @@ const providers = {
 };
 
 class Navbar extends React.Component {
+  state = {
+    anchorEl: null,
+  };
+
+  handleClick = event => {
+    this.setState({ anchorEl: event.currentTarget });
+  };
+  handleClose = () => {
+    this.setState({ anchorEl: null });
+  };
+
   render() {
     const { user, signOut, signInWithGoogle } = this.props;
+    console.log(user)
     return (
       <div style={{ flexGrow: 1 }}> 
         <AppBar position="fixed" color="inherit">
@@ -35,14 +49,30 @@ class Navbar extends React.Component {
             </Typography>
             {
               user 
-              ? <div>hello, {user.displayName}</div>
-              : <p>Please sign in</p>
+              ? (
+                <div>
+                  <Button aria-controls="simple-menu" aria-haspopup="true" onClick={this.handleClick}>
+                    <img src={user.photoURL} alt={user.displayName} width="30px" height="30px"/>
+                    {user.displayName}
+                  </Button>
+                  <Menu
+                    id="simple-menu"
+                    anchorEl={this.state.anchorEl}
+                    keepMounted
+                    open={Boolean(this.state.anchorEl)}
+                    onClose={this.handleClose}
+                  >
+                    <MenuItem onClick={this.handleClose}>Profile</MenuItem>
+                    <MenuItem onClick={this.handleClose}>My account</MenuItem>
+                    <MenuItem onClick={signOut}>
+                      Sign Out
+                    </MenuItem>
+                  </Menu>
+                </div>
+              )
+              : <Button variant="contained" color="primary" onClick={signInWithGoogle}>Sign in with Google</Button>
             }
-            {
-              user
-              ? <Button color="primary" onClick={signOut}>Sign Out</Button>
-              : <Button color="primary" onClick={signInWithGoogle}>Sign in with Google</Button>
-            }
+
           </Toolbar>
         </AppBar>
       </div>
