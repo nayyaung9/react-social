@@ -7,12 +7,16 @@ import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
+import Box from '@material-ui/core/Box';
 
 // Auth
 import withFirebaseAuth from 'react-with-firebase-auth';
 import * as firebase from 'firebase/app';
 import 'firebase/auth';
 import firebaseConfig from '../firebase';
+
+// Styles
+import '../style.css';
 
 const firebaseApp = firebase.initializeApp(firebaseConfig);
 
@@ -36,7 +40,6 @@ class Navbar extends React.Component {
 
   render() {
     const { user, signOut, signInWithGoogle } = this.props;
-    console.log(user)
     return (
       <div style={{ flexGrow: 1 }}> 
         <AppBar position="fixed" color="inherit">
@@ -45,15 +48,19 @@ class Navbar extends React.Component {
               <MenuIcon />
             </IconButton>
             <Typography variant="h6" style={{ flexGrow: 1 }}>
-              News
+              Social App
             </Typography>
             {
               user 
               ? (
                 <div>
                   <Button aria-controls="simple-menu" aria-haspopup="true" onClick={this.handleClick}>
-                    <img src={user.photoURL} alt={user.displayName} width="30px" height="30px"/>
-                    {user.displayName}
+                    <img src={user.photoURL} alt={user.displayName} className="avatar__profile"/>
+                    <Typography variant="subtitle2">
+                      <Box fontWeight={500}>
+                        {user.displayName}
+                      </Box>
+                    </Typography>
                   </Button>
                   <Menu
                     id="simple-menu"
