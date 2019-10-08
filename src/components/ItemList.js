@@ -1,21 +1,24 @@
 import React, {Component} from 'react';
-import {connect} from 'react-redux';
+import Paper from '@material-ui/core/Paper';
+import Typography from '@material-ui/core/Typography';
 
 class ListItem extends Component {
   render() {
     const { item } = this.props;
     return (
-      <div key="toDoName" className="col s10 offset-s1 to-do-list-item black">
-        <h4>
-          {item.title}
-          <span 
-            className="complete-todo-item waves-effect waves-light blue lighten-5 blue-text text-darken-4 btn"
-          >
-          </span>
-        </h4>
-      </div>
+    
+
+        <Paper style={{ padding: '20px 30px', marginBottom: '20px' }}>
+            <Typography variant="h5" component="h3">
+            {item.title}
+            </Typography>
+            <Typography component="p">
+            {item.content}
+            </Typography>
+        </Paper>
+   
     );
   }
 }
 
-export default connect(null)(ListItem);
+export default ListItem;

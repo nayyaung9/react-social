@@ -1,7 +1,7 @@
 import React from 'react';
 import Container from '@material-ui/core/Container';
-// import TextField from '@material-ui/core/TextField';
-// import Button from '@material-ui/core/Button';
+import TextField from '@material-ui/core/TextField';
+import Button from '@material-ui/core/Button';
 
 import * as actions from '../actions/';
 import { connect } from 'react-redux';
@@ -27,7 +27,7 @@ class Create extends React.Component {
       <div style={{ marginTop: '70px' }}>
         <Container fixed>
           <form onSubmit={this.onHandleSubmit}>
-            {/* <TextField
+            <TextField
               id="outlined-email-input"
               label="Title"
               type="text"
@@ -37,15 +37,14 @@ class Create extends React.Component {
               variant="outlined"
               fullWidth={true}
               value={this.state.title}
-              onChange={(e) => this.setState({ title: e.target.value })}
-            /> */}
-            <input type="text"      
-            value={this.state.title}
-              onChange={(e) => this.setState({ title: e.target.value })}/>
-            <input type="text" 
-             value={this.state.content}
-             onChange={(e) => this.setState({ content: e.target.value })} />
-            {/* <TextField
+              defaultValue={this.state.title}
+              onChange={event => {
+                const { value } = event.target;
+                this.setState({ title: value });
+              }}
+              required
+            />
+            <TextField
               id="outlined-password-input"
               label="Body Content"
               type="text"
@@ -54,10 +53,14 @@ class Create extends React.Component {
               variant="outlined"
               fullWidth={true}
               value={this.state.content}
-              onChange={(e) => this.setState({ content: e.target.value })}
-            /> */}
-            {/* <Button variant="outlined" color="primary">Submit</Button> */}
-            <button>submit</button>
+              defaultValue={this.state.content}
+              onChange={event => {
+                const { value } = event.target;
+                this.setState({ content: value });
+              }}
+              required
+            />
+            <Button type="submit" variant="outlined" color="primary">Submit</Button>
           </form>
         </Container>
       </div>

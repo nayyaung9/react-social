@@ -8,6 +8,7 @@ import MenuIcon from '@material-ui/icons/Menu';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 import Box from '@material-ui/core/Box';
+import { Link } from 'react-router-dom';
 
 // Auth
 import withFirebaseAuth from 'react-with-firebase-auth';
@@ -69,8 +70,14 @@ class Navbar extends React.Component {
                     open={Boolean(this.state.anchorEl)}
                     onClose={this.handleClose}
                   >
-                    <MenuItem onClick={this.handleClose}>Profile</MenuItem>
-                    <MenuItem onClick={this.handleClose}>My account</MenuItem>
+                    <MenuItem onClick={this.handleClose}>
+                      Profile
+                    </MenuItem>
+                    <MenuItem onClick={this.handleClose}>
+                      <Link to='/wiki/new'>
+                        My account
+                      </Link>
+                    </MenuItem>
                     <MenuItem onClick={signOut}>
                       Sign Out
                     </MenuItem>

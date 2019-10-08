@@ -8,6 +8,7 @@ import ItemList from './ItemList';
 class Feed extends React.Component {
   render() {
     const {wiki} = this.props;
+    console.log(wiki);
     const contents = _.map(wiki, (value, key) => {
       return <ItemList key={key} item={value} />;
     })
