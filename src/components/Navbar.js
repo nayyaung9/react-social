@@ -2,12 +2,10 @@ import React from 'react';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
+import Container from '@material-ui/core/Container';
 import Button from '@material-ui/core/Button';
-import IconButton from '@material-ui/core/IconButton';
-import MenuIcon from '@material-ui/icons/Menu';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
-import Box from '@material-ui/core/Box';
 import { Link } from 'react-router-dom';
 
 // Auth
@@ -44,10 +42,9 @@ class Navbar extends React.Component {
     return (
       <div style={{ flexGrow: 1 }}> 
         <AppBar position="fixed" color="inherit">
+        <Container maxWidth="lg">
           <Toolbar>
-            <IconButton edge="start" style={{ marginRight: '20px' }} color="inherit" aria-label="menu">
-              <MenuIcon />
-            </IconButton>
+            
             <Typography variant="h6" style={{ flexGrow: 1 }}>
               Social App
             </Typography>
@@ -58,9 +55,7 @@ class Navbar extends React.Component {
                   <Button aria-controls="simple-menu" aria-haspopup="true" onClick={this.handleClick}>
                     <img src={user.photoURL} alt={user.displayName} className="avatar__profile"/>
                     <Typography variant="subtitle2">
-                      <Box fontWeight={500}>
-                        {user.displayName}
-                      </Box>
+                      {user.displayName}
                     </Typography>
                   </Button>
                   <Menu
@@ -88,6 +83,7 @@ class Navbar extends React.Component {
             }
 
           </Toolbar>
+          </Container>
         </AppBar>
       </div>
     )
