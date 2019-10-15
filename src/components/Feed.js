@@ -15,7 +15,7 @@ class Feed extends React.Component {
       return <FeedList key={key} item={value} />;
     })
     return(
-      <div style={{ marginTop: '70px' }}>
+      <div style={{ marginTop: '120px' }}>
         <Container maxWidth="md">
           <Grid container spacing={3}>
             <Grid item xs={12} sm={8}>

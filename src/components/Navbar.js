@@ -42,47 +42,45 @@ class Navbar extends React.Component {
     return (
       <div style={{ flexGrow: 1 }}> 
         <AppBar position="fixed" color="inherit">
-        <Container maxWidth="lg">
-          <Toolbar>
-            
-            <Typography variant="h6" style={{ flexGrow: 1 }}>
-              Social App
-            </Typography>
-            {
-              user 
-              ? (
-                <div>
-                  <Button aria-controls="simple-menu" aria-haspopup="true" onClick={this.handleClick}>
-                    <img src={user.photoURL} alt={user.displayName} className="avatar__profile"/>
-                    <Typography variant="subtitle2">
-                      {user.displayName}
-                    </Typography>
-                  </Button>
-                  <Menu
-                    id="simple-menu"
-                    anchorEl={this.state.anchorEl}
-                    keepMounted
-                    open={Boolean(this.state.anchorEl)}
-                    onClose={this.handleClose}
-                  >
-                    <MenuItem onClick={this.handleClose}>
-                      Profile
-                    </MenuItem>
-                    <MenuItem onClick={this.handleClose}>
-                      <Link to='/wiki/new'>
-                        My account
-                      </Link>
-                    </MenuItem>
-                    <MenuItem onClick={signOut}>
-                      Sign Out
-                    </MenuItem>
-                  </Menu>
-                </div>
-              )
-              : <Button variant="contained" color="primary" onClick={signInWithGoogle}>Sign in with Google</Button>
-            }
-
-          </Toolbar>
+          <Container maxWidth="lg">
+            <Toolbar>
+              <Typography variant="h4" style={{ flexGrow: 1 }} className="app_name">
+                Nay Yaung
+              </Typography>
+              {
+                user 
+                ? (
+                  <div>
+                    <Button aria-controls="simple-menu" aria-haspopup="true" onClick={this.handleClick}>
+                      <img src={user.photoURL} alt={user.displayName} className="avatar__profile"/>
+                      <Typography variant="subtitle2">
+                        {user.displayName}
+                      </Typography>
+                    </Button>
+                    <Menu
+                      id="simple-menu"
+                      anchorEl={this.state.anchorEl}
+                      keepMounted
+                      open={Boolean(this.state.anchorEl)}
+                      onClose={this.handleClose}
+                    >
+                      <MenuItem onClick={this.handleClose}>
+                        Profile
+                      </MenuItem>
+                      <MenuItem onClick={this.handleClose}>
+                        <Link to='/wiki/new'>
+                          My account
+                        </Link>
+                      </MenuItem>
+                      <MenuItem onClick={signOut}>
+                        Sign Out
+                      </MenuItem>
+                    </Menu>
+                  </div>
+                )
+                : <Button variant="contained" color="primary" onClick={signInWithGoogle}>Sign in with Google</Button>
+              }
+            </Toolbar>
           </Container>
         </AppBar>
       </div>
