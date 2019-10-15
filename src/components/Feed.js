@@ -5,14 +5,14 @@ import { connect } from 'react-redux';
 import { fetchWiki } from '../actions';
 import _ from 'lodash';
 
-import ItemList from './ItemList';
+import FeedList from './FeedList';
 
 class Feed extends React.Component {
   render() {
     const {wiki} = this.props;
     console.log(wiki);
     const contents = _.map(wiki, (value, key) => {
-      return <ItemList key={key} item={value} />;
+      return <FeedList key={key} item={value} />;
     })
     return(
       <div style={{ marginTop: '70px' }}>

@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 
 class ListItem extends Component {
@@ -8,7 +7,7 @@ class ListItem extends Component {
     return (
     
 
-        <Paper style={{ marginBottom: '20px' }}>
+        <div style={{ marginBottom: '60px', border: '1px solid #e6e6e6', borderRadius: '3px' }}>
           <div style={{ padding: '20px 30px'}}>
           <Typography variant="h5" component="h3">
             {item.title} 
@@ -23,7 +22,7 @@ class ListItem extends Component {
             </div>
         
            
-        </Paper>
+        </div>
    
     );
   }
