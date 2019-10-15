@@ -1,6 +1,9 @@
 import React from 'react'
 import Container from '@material-ui/core/Container';
+import CircularProgress from '@material-ui/core/CircularProgress';
+import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
+
 import { connect } from 'react-redux';
 import { fetchWiki } from '../actions';
 import _ from 'lodash';
@@ -14,6 +17,8 @@ class Feed extends React.Component {
     const contents = _.map(wiki, (value, key) => {
       return <FeedList key={key} item={value} />;
     })
+
+
     return(
       <div style={{ marginTop: '120px' }}>
         <Container maxWidth="md">
@@ -22,7 +27,13 @@ class Feed extends React.Component {
               {contents}
             </Grid>
             <Grid item xs={12} sm={4}>
-              a
+              <div style={{ textAlign: "center" }}> 
+                <CircularProgress color="secondary" /><br />
+                <Typography variant="caption" color="secondary">
+                  In Development Mode
+                </Typography>
+              </div>
+           
             </Grid>
           </Grid>
         

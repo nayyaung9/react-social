@@ -39,6 +39,7 @@ class Navbar extends React.Component {
 
   render() {
     const { user, signOut, signInWithGoogle } = this.props;
+    console.log(firebase.auth());
     return (
       <div style={{ flexGrow: 1 }}> 
         <AppBar position="fixed" color="inherit">

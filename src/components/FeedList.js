@@ -1,39 +1,3 @@
-// import React, {Component} from 'react';
-// import Typography from '@material-ui/core/Typography';
-// // Styles
-// import '../style.css';
-
-// class ListItem extends Component {
-//   render() {
-//     const { item } = this.props;
-//     return (
-    
-
-//         <div style={{ marginBottom: '60px', border: '1px solid #e6e6e6', borderRadius: '3px' }} className="article_post">
-//           <div style={{ padding: '20px 30px'}}>
-//             <img src={item.authProfile} className="avatar__profile" alt={item.user} />
-//           <Typography variant="h5" component="h3">
-//             {item.user} 
-//             </Typography>
-//           </div>
-          
-//             <img src={`${item.photo}`} alt={`${item.title}`} width="100%"/>
-//             <div style={{ padding: '20px 30px'}}>
-//               <Typography component="p">
-//                 {item.content}
-//               </Typography>
-//             </div>
-        
-           
-//         </div>
-   
-//     );
-//   }
-// }
-
-// export default ListItem;
-
-
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import clsx from 'clsx';
@@ -107,8 +71,7 @@ export default function ProfileCard(props) {
       />
       <CardContent>
         <Typography variant="body2" color="textSecondary" component="p">
-          This impressive paella is a perfect party dish and a fun meal to cook together with your
-          guests. Add 1 cup of frozen peas along with the mussels, if you like.
+          {item.content}
         </Typography>
       </CardContent>
       <CardActions disableSpacing>
