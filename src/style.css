@@ -10,6 +10,9 @@ header {
   font-family: 'Mansalva', cursive !important;
   font-weight: bold !important;
 }
+.auth_userName {
+  font-weight: bold !important;
+}
 .avatar__profile {
   width: 30px;
   height: 30px;

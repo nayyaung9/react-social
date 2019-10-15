@@ -53,7 +53,7 @@ class Navbar extends React.Component {
                   <div>
                     <Button aria-controls="simple-menu" aria-haspopup="true" onClick={this.handleClick}>
                       <img src={user.photoURL} alt={user.displayName} className="avatar__profile"/>
-                      <Typography variant="subtitle2">
+                      <Typography variant="subtitle2" className="auth_userName">
                         {user.displayName}
                       </Typography>
                     </Button>

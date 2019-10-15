@@ -30,7 +30,13 @@ class Create extends React.Component {
     event.preventDefault();
     const { addWiki } = this.props;
 
-    addWiki({title: this.state.title, content: this.state.content, photo: this.state.image });
+    addWiki({
+      title: this.state.title, 
+      content: this.state.content, 
+      photo: this.state.image, 
+      user: firebase.auth().currentUser.displayName,
+      authProfile: firebase.auth().currentUser.photoURL
+    });
 
     this.setState({
       title: '',
@@ -87,3 +93,4 @@ class Create extends React.Component {
 }
 
 export default connect(null, actions)(Create);
+
