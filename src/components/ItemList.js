@@ -8,13 +8,21 @@ class ListItem extends Component {
     return (
     
 
-        <Paper style={{ padding: '20px 30px', marginBottom: '20px' }}>
-            <Typography variant="h5" component="h3">
-            {item.title}
+        <Paper style={{ marginBottom: '20px' }}>
+          <div style={{ padding: '20px 30px'}}>
+          <Typography variant="h5" component="h3">
+            {item.title} 
             </Typography>
-            <Typography component="p">
-            {item.content}
-            </Typography>
+          </div>
+          
+            <img src={`${item.photo}`} alt={`${item.title}`} width="100%"/>
+            <div style={{ padding: '20px 30px'}}>
+              <Typography component="p">
+                {item.content}
+              </Typography>
+            </div>
+        
+           
         </Paper>
    
     );
