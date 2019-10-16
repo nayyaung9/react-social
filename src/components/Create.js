@@ -35,7 +35,8 @@ class Create extends React.Component {
       content: this.state.content, 
       photo: this.state.image, 
       user: firebase.auth().currentUser.displayName,
-      authProfile: firebase.auth().currentUser.photoURL
+      authProfile: firebase.auth().currentUser.photoURL,
+      date: new Date().toLocaleString()
     });
 
     this.setState({
