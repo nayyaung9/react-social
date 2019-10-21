@@ -35,18 +35,17 @@ class Navbar extends React.Component {
   };
   handleClose = () => {
     this.setState({ anchorEl: null });
-  };
+  };                                                                   
 
-  render() {
+  render() {                                                                                                                    
     const { user, signOut, signInWithGoogle } = this.props;
-    console.log(firebase.auth());
     return (
       <div style={{ flexGrow: 1 }}> 
         <AppBar position="fixed" color="inherit">
           <Container maxWidth="lg">
             <Toolbar>
-              <Typography variant="h4" style={{ flexGrow: 1 }} className="app_name">
-                Nay Yaung
+              <Typography variant="h6" style={{ flexGrow: 1 }} className="app_name">
+                React Social
               </Typography>
               {
                 user 
@@ -79,7 +78,7 @@ class Navbar extends React.Component {
                     </Menu>
                   </div>
                 )
-                : <Button variant="contained" color="primary" onClick={signInWithGoogle}>Sign in with Google</Button>
+                : <Button variant="contained" onClick={signInWithGoogle}>Sign in with Google</Button>
               }
             </Toolbar>
           </Container>

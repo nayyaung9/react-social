@@ -10,10 +10,11 @@ import _ from 'lodash';
 
 import FeedList from './FeedList';
 
+
 class Feed extends React.Component {
   render() {
     const {wiki} = this.props;
-    console.log(wiki);
+    console.log(wiki)
     const contents = _.map(wiki, (value, key) => {
       return <FeedList key={key} item={value} />;
     })
@@ -22,7 +23,7 @@ class Feed extends React.Component {
     return(
       <div style={{ marginTop: '120px' }}>
         <Container maxWidth="md">
-          <Grid container spacing={3}>
+          <Grid container>
             <Grid item xs={12} sm={8}>
               {contents}
             </Grid>
