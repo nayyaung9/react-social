@@ -51,10 +51,6 @@ export default function ProfileCard(props) {
     setExpanded(event.currentTarget);
   };
 
-  const postDelete = () => {
-      firebase.database().ref('wiki', )
-  }
-
   const { item } = props;
 
   return (
@@ -104,7 +100,7 @@ export default function ProfileCard(props) {
           <Typography paragraph>
             {item.content}
           </Typography>
-          <Button variant="outlined" color="secondary">Delete</Button>
+          <Button variant="outlined" color="secondary">Edit</Button>
         </CardContent>
       </Collapse>
     </Card>

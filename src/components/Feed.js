@@ -16,7 +16,7 @@ class Feed extends React.Component {
     const {wiki} = this.props;
     console.log(wiki)
     const contents = _.map(wiki, (value, key) => {
-      return <FeedList key={key} item={value} />;
+      return <FeedList key={key} item={value} />; 
     })
 
 
